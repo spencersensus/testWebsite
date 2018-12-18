@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<DOCTYPE html>
 <html>
 
 <head>
@@ -10,14 +10,8 @@
   
   <title></title>
 </head>
-
-<body>
 <?php
-session_start();
-
-class testing{
-  public function saveComment(){
-    $servername = "localhost";
+$servername = "localhost";
     $username = "webserver";
     $password = "vya8bD?r%+4fQRYP>v";
     $dbname = "candidate_woodss";
@@ -30,28 +24,16 @@ class testing{
    } 
    else{
         echo "Success!";
-        }   
-}
+        }
+        $sql = "CREATE TABLE MovieInfo (
+        Certification VARCHAR(30) NOT NULL  PRIMARY KEY, 
+        PrimaryReleaseYear INT(4) NOT NULL,
+        Genre VARCHAR(30) NOT NULL
+        )";   
 
+        if ($conn->query($sql) === TRUE) {
+                echo "Table MovieInfo created successfully";
+        } else {
+                echo "Error creating table: " . $conn->error;
 }
-if(isset($_POST['subContact']))
-{
-    $y = new testing();
-    $y -> saveComment();
-}
-
-
 ?>
-<p>HELLO WORLD </p>
-<div class = "TestContainer" id = "TestContainer">
-    <form class = "signUp" action="index.php" style="border:1px solid #ccc" method = "post">
-                  <div class="clearfix">
-                    <button type="submit" class="signupbtn" name = "testConn">TestConnection</button>
-                  </div>
-              </form>
-</div>
-<div>
-<a href = "Gather.php" p class = "NavElement" id = "Gather">Go to Gather</a>
-</div>
-</body>
-</html>
